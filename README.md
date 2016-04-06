@@ -2,6 +2,7 @@
 This program can be used for fitting the self field critical currents of superconductors with various dimensions. 
 
 Thermodynamic parameters of single and multi-band superconductors derived from self-field critical currents.
+
 Authors: Evgeny Talantsev, Wayne Crump, Jeff Talon.
 
 Installation:
