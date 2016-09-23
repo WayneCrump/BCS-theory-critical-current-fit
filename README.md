@@ -6,8 +6,7 @@ Thermodynamic parameters of single and multi-band superconductors derived from s
 Authors: Evgeny Talantsev, Wayne Crump, Jeff Tallon.
 
 Installation:
-To use the program you must either have matlab or have the matlab runtime (download link: http://au.mathworks.com/products/compiler/mcr/).
-Matlab version 2012a or later is recommended.
+To use the program you must have the matlab runtime (download link: http://au.mathworks.com/products/compiler/mcr/) version 7.17 (R2012a).
 Simply unzip and run the exe.
 
 Usage: 
