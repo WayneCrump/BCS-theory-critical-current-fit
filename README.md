@@ -1,11 +1,16 @@
 # Bardeen-Cooper-Schrieffer-theory-critical-current-fit
 This program can be used for fitting the self field critical currents of superconductors with various dimensions. 
 
-Thermodynamic parameters of single and multi-band superconductors derived from self-field critical currents.
-
+Our technique and motivation is described in the paper: https://arxiv.org/abs/1609.03670
+Thermodynamic parameters of single- or multi-band superconductors derived from self-field critical currents
 Authors: Evgeny Talantsev, Wayne Crump, Jeff Tallon.
 
+In particular we show there that self-field Jc is not determined by vortex movement but by a universal current density limit governed solely by the penetration depth.
+
+The program takes the temperature dependent self field critical current and fits it to find the critical temperature Tc, superconducting gap magnitude Delta0, Specific heat jump at Tc dC/C, and penetration depth lambda0.
+
 Installation:
+
 To use the program you must have the matlab runtime (download link: http://au.mathworks.com/products/compiler/mcr/) version 7.17 (R2012a).
 Simply unzip and run the exe.
 
@@ -17,5 +22,3 @@ Also needed for fitting is the materials kappa=penetration depth/coherence lengt
 Raw data: Format must be .csv with two columns the first is temperature in Kelvin and the second is Self-field critical current density in A/m^2.
 
 Import the raw data into the program. Use the buttons to choose the geometry and type of fit. Input the sample dimensions and Ginzburg -Landau ratio.
-
-The parameters of the fit are the critical temperature (Tc), the zero temperature energy gap (Delta0), the jump in specific heat at Tc (dC/C), and the zero temperature penetration depth (lambda0). You can manually change these parameters yourself or the program will try to fit them using a least squares approach.
