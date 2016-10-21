@@ -49,9 +49,10 @@ After loading the Jc(sf,T) data set, do the following:
   b.    2D thin film (very thin film, where film thickness = 2b << London penetration depth);  
   c.    3D rectangular sample with entire width (2a) and thickness (2b);
 2.      Input the sample cross-sectional dimensions
-3.      Choose the gap symmetry: s- or d-wave  
-4.      Choose single or double band model
-5.      Input Ginzburg -Landau parameter k.
+3.      Choose type I or type II superconductor
+4.      Choose the gap symmetry: s- or d-wave  
+5.      Choose single or double band model
+6.      Input Ginzburg -Landau parameter k.
 
  
 Press “fit”. You may choose the number of iterations the fit will do. When the program is fitting a window should appear showing the norm of the residual as it is reduced. The fit will stop if the tolerance is reached before the number of iterations is up.
