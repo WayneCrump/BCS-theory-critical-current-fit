@@ -1,5 +1,11 @@
 # Bardeen-Cooper-Schrieffer-theory-critical-current-fit
 
+INSTALLATION:
+To use the program you must have the matlab runtime (download link:http://mathworks.com/products/compiler/mcr/) version 7.17 (R2012a). You may need to restart your computer after installing the runtime.
+
+Simply open the program exe to run.
+
+
 GENERAL:
 This is the Software used for our paper entitled
 “Thermodynamic parameters of single- or multi-band superconductors derived from self-field critical currents”
@@ -34,10 +40,6 @@ The program provides the possibility to select different options:
     5.b.1.  transition temperatures
     5.b.2.  London penetration depths
     5.b.3.  In case of cuprates: Uemura’s relation between London penetration depths of each bands can be chosen.  
-
-INSTALLATION:
-To use the program you must have the matlab runtime (download link:http://au.mathworks.com/products/compiler/mcr/) version 7.17 (R2012a).
-Simply unzip and run the exe.
  
 USAGE:
 This program takes raw experimental transport critical current densitye data in the form of a comma separated file (.csv), where the first column is temperature in Kelvin and the second column is current density in A/m^2.  
