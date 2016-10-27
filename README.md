@@ -29,28 +29,22 @@ USAGE:
 This program takes raw experimental transport self-field critical current density data in the form of a comma separated variable file (.csv), where the first column is temperature in K and the second column is current density in A/m^2.  
 
 After loading the Jc(sf,T) data set, you have several options to choose how to fit the data.
+
 1. Choose the sample geometry:
+
    2D sample: the sample is 2 dimensional e.g. a monolayer of atoms.
    3D sample: the sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron.
    Wire - Bessel: the sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron.
    Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron.
+   
 2. Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa.
+
 3. Choose the superconductor gap symmetry to be S-wave or D-wave.
+
 4. The anisotropy should be set to 1. In cases where the current flows perpendicular to the c-axis and the london penetration depth in the a or b direction is different to the penetration in the c direction (the cuprates), you can set this to be the anisotropy in the penetration depth. The fitted penetration depth will be in the c direction.
 
 
 
-
-
-1.      Use the buttons to choose cross-section geometry of the sample: 
-  a.    Round wire;  
-  b.    2D thin film (very thin film, where film thickness = 2b << London penetration depth);  
-  c.    3D rectangular sample with entire width (2a) and thickness (2b);
-2.      Input the sample cross-sectional dimensions
-3.      Choose type I or type II superconductor
-4.      Choose the gap symmetry: s- or d-wave  
-5.      Choose single or double band model
-6.      Input Ginzburg -Landau parameter k.
 
  
 Press “fit”. You may choose the number of iterations the fit will do. When the program is fitting a window should appear showing the norm of the residual as it is reduced. The fit will stop if the tolerance is reached before the number of iterations is up.
