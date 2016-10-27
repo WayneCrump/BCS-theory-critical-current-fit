@@ -32,40 +32,32 @@ After loading the Jc(sf,T) data set, you have several options to choose how to f
 
 1.  Choose the sample geometry:
 
-   2D sample: The sample is 2 dimensional e.g. a monolayer of atoms;
-   
-   3D sample: The sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron;
-   
-   Wire - Bessel: The sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron;
-   
-   Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron;
+    2D sample:  The sample is 2 dimensional e.g. a monolayer of atoms;
+    
+    3D sample:  The sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron;
+    
+    Wire - Bessel:  The sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron;
+    
+    Wire - tanh:  This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron;
    
 2.  Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa;
 3.  Choose the superconductor gap symmetry to be S-wave or D-wave;
 4.  The anisotropy should be set to 1. In cases where the current flows perpendicular to the c-axis and the london penetration depth in the a or b direction is different to the penetration in the c direction (the cuprates), you can set this to be the anisotropy in the penetration depth. The fitted penetration depth will be in the c direction.
+5.  Choose whether you are fitting a single band or two band superconductor. The alpha model assumes the the critical temperature and penetration depth of each band is the same. The independent model assumes each band has a seperate critical temperature and penetration depth. The Uemura model links the second band penetration depth to the first band using the ratio of the critical temperatures under a square root.
 
+Next you may press “fit”. You may choose the number of iterations the fit will work through. When the program is fitting text should appear in the DOS windows showing the progress of the fit. The fit will stop if the tolerance is reached before the number of iterations is up.
 
+After the fit is complete the derived parameters along with their errors and dependencies will appear. These parameters are the critical temperature (Tc) in K, the ground state of superconducting energy gap (Delta0) in meV, the relative jump in specific heat at Tc (dC/C), and the ground state of London penetration depth (lambda0) in nm.
 
+The tick boxes beside each parameter will choose whether the program will try and fit it or not.
 
- 
-Press “fit”. You may choose the number of iterations the fit will do. When the program is fitting a window should appear showing the norm of the residual as it is reduced. The fit will stop if the tolerance is reached before the number of iterations is up.
-DERIVED PARAMETERS:
- 
-BCS parameters of the fit appear in the window:
- 
-1.      Critical temperature (Tc) in K;
-2.      Ground state of superconducting energy gap (Delta0) in meV;
-3.      Relative jump in specific heat at Tc (dC/C);
-4.      Ground state of London penetration depth (lambda0) in nm.
+The "Calc" button will use the fit parameters to calculate the self-field current density from 0 K to the critical temperature and this will appear as a blue line. The number of points used to make the line can be changed.
 
- 
 OUTPUT FILE:
  
-Press corresponding buttons to save    
-Save fit: Save the Jc(sf,T) fit with fit parameters;
-Blue line Jc to lambda: Save the Jc(sf,T) fit and Lambda(T) with fit parameters;
-Experiment data Jc to lambda: Save the raw Jc(sf,T) and corresponding converted Lambda(T) data.   
+The output may be saved using the "Save fit" button. This will save the fit options, fit parameters and the calculated points making up the blue line.
+The "Blue Jc line to lambda" button will save a file containing the calculated blue line self-field critical current density converted to penetration depth values using the formula in the paper.
+The "Experiment data Jc to lambda" button will save a file containing the green experimental data points converted to penetration depth values using the formula in the paper.
 
- 
-These output files appeared in *.dat designation.
-The program will ask you to save these *.dat file in your location.
+These output files will have the *.dat designation.
+The program will ask you where to save these *.dat files.
