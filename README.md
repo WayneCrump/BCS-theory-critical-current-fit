@@ -30,18 +30,19 @@ This program takes raw experimental transport self-field critical current densit
 
 After loading the Jc(sf,T) data set, you have several options to choose how to fit the data.
 
-1. Choose the sample geometry:
+1.  Choose the sample geometry:
 
    2D sample: The sample is 2 dimensional e.g. a monolayer of atoms;
+   
    3D sample: The sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron;
+   
    Wire - Bessel: The sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron;
+   
    Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron;
    
-2. Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa.
-
-3. Choose the superconductor gap symmetry to be S-wave or D-wave.
-
-4. The anisotropy should be set to 1. In cases where the current flows perpendicular to the c-axis and the london penetration depth in the a or b direction is different to the penetration in the c direction (the cuprates), you can set this to be the anisotropy in the penetration depth. The fitted penetration depth will be in the c direction.
+2.  Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa;
+3.  Choose the superconductor gap symmetry to be S-wave or D-wave;
+4.  The anisotropy should be set to 1. In cases where the current flows perpendicular to the c-axis and the london penetration depth in the a or b direction is different to the penetration in the c direction (the cuprates), you can set this to be the anisotropy in the penetration depth. The fitted penetration depth will be in the c direction.
 
 
 
