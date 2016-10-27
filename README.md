@@ -32,10 +32,10 @@ After loading the Jc(sf,T) data set, you have several options to choose how to f
 
 1. Choose the sample geometry:
 
-   2D sample: the sample is 2 dimensional e.g. a monolayer of atoms.
-   3D sample: the sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron.
-   Wire - Bessel: the sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron.
-   Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron.
+   2D sample: The sample is 2 dimensional e.g. a monolayer of atoms;
+   3D sample: The sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron;
+   Wire - Bessel: The sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron;
+   Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron;
    
 2. Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa.
 
