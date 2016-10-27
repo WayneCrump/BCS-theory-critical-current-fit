@@ -24,28 +24,24 @@ This program extracts fundamental parameters of superconductors from the self-fi
 We emphasize that the analysis is not applicable to “magnetic” Jc based on Bean model.  
 The analysis does not refer to vortex depinning movement because as we show in the paper this is not relevant to the self-field Jc.
 The technique and motivation is described in the paper.
- 
-The program provides the possibility to select different options:
- 
-1.      Single or double superconducting band(s)    
-2.      Gap(s) symmetry: s- or d-wave
-3.      Sample dimensions: from Angstrom to cm   
-4.      Ginzburg-Landau parameter k
-5.      For two-band or two-phase model: choose either
-  5.a.  Alpha-model for which both bands/phases have:
-    5.a.1.  the same transition temperature
-    5.a.2.  joint London penetration depth
-    5.a.3.  band weight described by normalized parameter alpha: 0 < alpha < 1.
-  5.b.  Independent-model for which each band has independent
-    5.b.1.  transition temperatures
-    5.b.2.  London penetration depths
-    5.b.3.  In case of cuprates: Uemura’s relation between London penetration depths of each bands can be chosen.  
- 
+
 USAGE:
-This program takes raw experimental transport critical current density data in the form of a comma separated file (.csv), where the first column is temperature in Kelvin and the second column is current density in A/m^2.  
- 
-After loading the Jc(sf,T) data set, do the following:
- 
+This program takes raw experimental transport self-field critical current density data in the form of a comma separated variable file (.csv), where the first column is temperature in K and the second column is current density in A/m^2.  
+
+After loading the Jc(sf,T) data set, you have several options to choose how to fit the data.
+1. Choose the sample geometry:
+   2D sample: the sample is 2 dimensional e.g. a monolayer of atoms.
+   3D sample: the sample is rectangular in shape e.g. thin film samples. Here you will have to input the width (2a) and the thickness (2b) in micron.
+   Wire - Bessel: the sample is a wire. The exact Bessel functions are used in this solution. Here you will have to input the diameter (2a) in micron.
+   Wire - tanh: This is an approximation of the Bessel function solution. Use this when the ratio of the wire radius to the london penetration depth will be higher then 700. Here you will have to input the diameter (2a) in micron.
+2. Choose the superconductor type to be I or II and input the Ginzburg-Landau parameter kappa.
+3. Choose the superconductor gap symmetry to be S-wave or D-wave.
+4. The anisotropy should be set to 1. In cases where the current flows perpendicular to the c-axis and the london penetration depth in the a or b direction is different to the penetration in the c direction (the cuprates), you can set this to be the anisotropy in the penetration depth. The fitted penetration depth will be in the c direction.
+
+
+
+
+
 1.      Use the buttons to choose cross-section geometry of the sample: 
   a.    Round wire;  
   b.    2D thin film (very thin film, where film thickness = 2b << London penetration depth);  
