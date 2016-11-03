@@ -61,3 +61,9 @@ The "Experiment data Jc to lambda" button will save a file containing the green 
 
 These output files will have the *.dat designation.
 The program will ask you where to save these *.dat files.
+
+EXAMPLE FILE:
+
+We have provided a data set from Romijn et al, PRB 26 3648 (1982). This is self-field critical current data for a rectangular Aluminium sample. This is a thin film rectangular sample. It is a type I s-wave superconductor. Load up the file and choose these options for fitting as well as the single band option. Also you need to input the width, thickness and kappa values.
+
+Make sure you increase the number of fitting iterations from 1. If the fit is run until it converges you should obtain parameters from the fit around these values: Tc ~ 1.2 K, Delta0 ~ 0.18 meV, dC/C ~ 1.5, lambda0 ~ 55 nm.
