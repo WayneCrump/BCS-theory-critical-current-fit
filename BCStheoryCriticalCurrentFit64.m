@@ -42,7 +42,7 @@ if nargin==0
     fitline=line(xi,yi,'color','r','tag','fitline');
     %ylim([0 2])
     %set(plotax,'tag','plotax');
-    fontsize(8)
+    %fontsize(8)
     xlabel('Temperature (K)')
     ylabel('Self field Critical Current density(A/m^2)')
     
@@ -1725,7 +1725,7 @@ a = 7/5;
 nvec = linspace(-nmax,nmax,2*nmax+1);
 
 En = @(n,T) (2.*n+1).*kb.*pi.*T; %matsubara energy
-delta = @(d0,c,Tc,T)(d0.*tanh(((pi*kb.*Tc)./d0).*sqrt(a*c.*abs(sign(Tc-T))*heaviside(Tc-T)*((Tc./T) - 1)))); %gap function
+delta = @(d0,c,Tc,T)(d0.*tanh(((pi*kb.*Tc)./d0).*sqrt(a*c.*abs(sign(Tc-T))*heaviside1(Tc-T)*((Tc./T) - 1)))); %gap function
 
 
 argfun = @(w,d) d.^2 ./ (d.^2 + w.^2);
