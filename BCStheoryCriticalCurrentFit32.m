@@ -1716,6 +1716,36 @@ jvec = fitData;
 
 return
 
+function something = uifitACrho(T,Tc,d0,c,nmax)
+% constants
+kb = 8.617*10^(-5);  %bolztmannzs
+
+a = 7/5;
+
+nvec = linspace(-nmax,nmax,2*nmax+1);
+
+En = @(n,T) (2.*n+1).*kb.*pi.*T; %matsubara energy
+delta = @(d0,c,Tc,T)(d0.*tanh(((pi*kb.*Tc)./d0).*sqrt(a*c.*abs(sign(Tc-T))*heaviside(Tc-T)*((Tc./T) - 1)))); %gap function
+
+
+argfun = @(w,d) d.^2 ./ (d.^2 + w.^2);
+lambdafun = @(w,d,T) kb.*T.*2.*(ellipke(argfun(w,d)) - ellipee(argfun(w,d)))./sqrt(d.^2 + w.^2);
+
+
+
+wnintvec = En(nvec,T);
+rhovec = sum(lambdafun(wnintvec,delta(d0,c,Tc,T),T));
+
+something = rhovec;
+
+return
+
+function answer = ellipee(input)
+
+[temp answer] = ellipke(input);
+
+return
+
 function Y = heaviside1(X)
 %HEAVISIDE    Step function.
 Y = zeros(size(X));
