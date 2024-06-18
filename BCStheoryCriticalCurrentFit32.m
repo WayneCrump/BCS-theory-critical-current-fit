@@ -30,7 +30,7 @@ if nargin==0
         'name','Lambda Delta0 c fit program');
     zoom(311,'on')
     plotax=axes('tag','plotax',...
-        'position',[.08 .3 .65 .65],...    
+        'position',[.08 .3 .65 .65],...
         'box','on');
     x=(1:51)';
     y=ones(size(x));%icfun(x,[40 10 .1 0]);
@@ -45,14 +45,14 @@ if nargin==0
     %fontsize(8)
     xlabel('Temperature (K)')
     ylabel('Self field Critical Current density(A/m^2)')
-    
-    
-    lege = legend(uifitEqnLegend(SCmtype,Symmtype,Dmmtype,Bandmtype),'Location',legeloc);
+
+
+    lege = legend(uifitEqnLegend(SCmtype,Symmtype,Dmmtype,Bandmtype),'Position',legeloc);
     set(lege,'Interpreter','latex')
-    
+
     set(lege,'FontSize',legfontsize)
-    
-    
+
+
     % button and text box for loading files
     uicontrol('tag','filebox',...
         'Units','normalized',...
@@ -76,7 +76,7 @@ if nargin==0
         'position',[.15 .08 .1 .07],...
         'string','Save fit',...
         'callback','BCStheoryCriticalCurrentFit32(''save'')')
-    
+
     % lambda save button
     uicontrol('tag','lambutton',...
         'Units','normalized',...
@@ -84,7 +84,7 @@ if nargin==0
         'position',[.25 .08 .1 .07],...
         'string','Blue Jc line to lambda',...
         'callback','BCStheoryCriticalCurrentFit32(''lamsave'')')
-    
+
     % lambda save button
     uicontrol('tag','lambuttonexp',...
         'Units','normalized',...
@@ -117,7 +117,7 @@ if nargin==0
         'style','edit',...
         'position',[.92 .78 .05 .03],...
         'string','1')
-    
+
     % place for entering kappa
     uicontrol('tag','labkappa',...
         'Units','normalized',...
@@ -130,7 +130,7 @@ if nargin==0
         'style','edit',...
         'position',[.8 .73 .05 .03],...
         'string','95')
-    
+
     % place for entering anisotropy
     uicontrol('tag','labAniso',...
         'Units','normalized',...
@@ -143,7 +143,7 @@ if nargin==0
         'style','edit',...
         'position',[.92 .73 .05 .03],...
         'string','1')
-    
+
     % buttons for choosing type I of II
     typewpos = 0.745;
     twh = 0.95;
@@ -153,7 +153,7 @@ if nargin==0
         'position',[typewpos twh .05 .025],...
         'background',col,...
         'string','Type')
-    
+
     uicontrol('tag','typeIk0',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -169,19 +169,19 @@ if nargin==0
         'string','Type II',...
         'value',1,...
         'callback','BCStheoryCriticalCurrentFit32(''typeII'')');
-    
-    
+
+
     % buttons for choosing symmetry
     typesympos = 0.745;
     typesymwh = 0.87;
-    
-    
+
+
     uicontrol('style','text',...
         'Units','normalized',...
         'position',[typesympos typesymwh .05 .025],...
         'background',col,...
         'string','Symmetry')
-    
+
     uicontrol('tag','normaldbut',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -189,7 +189,7 @@ if nargin==0
         'string','D wave',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''normald2'')')
-    
+
     uicontrol('tag','normalsbut',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -197,18 +197,18 @@ if nargin==0
         'string','S wave',...
         'value',1,...
         'callback','BCStheoryCriticalCurrentFit32(''normals2'')')
-    
-    
+
+
 
     % buttons for choosing dimensions or not or wire
     typegeopos = 0.8;
-    
+
     uicontrol('style','text',...
         'Units','normalized',...
         'position',[typegeopos typewh .05 .025],...
         'background',col,...
         'string','Geometry')
-    
+
     uicontrol('tag','NoDim',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -216,7 +216,7 @@ if nargin==0
         'string','2D Sample',...
         'value',1,...
         'callback','BCStheoryCriticalCurrentFit32(''NoDimensions'')')
-    
+
     uicontrol('tag','Dim',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -224,7 +224,7 @@ if nargin==0
         'string','3D Rectangular Sample',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''Dimensions'')')
-    
+
     uicontrol('tag','Wire',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -232,7 +232,7 @@ if nargin==0
         'string','Wire - Bessel',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''wire'')')
-    
+
     uicontrol('tag','Wiretanh',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -240,16 +240,16 @@ if nargin==0
         'string','Wire - Tanh',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''wiretanh'')')
-    
+
             % buttons for band and alpha/Jc model
     typebandpos = 0.92;
-    
+
     uicontrol('style','text',...
         'Units','normalized',...
         'position',[typebandpos typewh .05 .025],...
         'background',col,...
         'string','Band model')
-            
+
     uicontrol('tag','alphasbut',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -257,16 +257,16 @@ if nargin==0
         'string','Single band',...
         'value',1,...
         'callback','BCStheoryCriticalCurrentFit32(''Singlemodel'')')
-        
-        
+
+
     uicontrol('tag','alphadbut',...
         'Units','normalized',...
         'style','radiobutton',...
         'position',[typebandpos typewh-0.05 .07 .025],...
         'string','Alpha model',...
         'value',0,...
-        'callback','BCStheoryCriticalCurrentFit32(''Alphamodel'')')    
-    
+        'callback','BCStheoryCriticalCurrentFit32(''Alphamodel'')')
+
     uicontrol('tag','alphaslbut',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -274,7 +274,7 @@ if nargin==0
         'string','Jc independent',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''Jcindependent'')')
-    
+
     uicontrol('tag','alphadlbut',...
         'Units','normalized',...
         'style','radiobutton',...
@@ -282,8 +282,8 @@ if nargin==0
         'string','Uemura',...
         'value',0,...
         'callback','BCStheoryCriticalCurrentFit32(''Umera'')')
-    
-    
+
+
     %text boxes saying the model type
     uicontrol('style','text',...
         'Units','normalized',...
@@ -291,45 +291,45 @@ if nargin==0
         'background',col,...
         'visible','off',...
         'string','Model type')
-    
+
     uicontrol('tag','SCtype',...
         'Units','normalized',...
         'style','edit',...
         'position',[.90 .98 .05 .03],...
         'visible','off',...
-        'string',SCmtype) 
-    
+        'string',SCmtype)
+
     uicontrol('tag','symtype',...
         'Units','normalized',...
         'style','edit',...
         'position',[.96 .85 .04 .03],...
         'visible','off',...
         'string',Symmtype)
-    
+
     uicontrol('tag','Anitype',...
         'Units','normalized',...
         'style','edit',...
         'position',[.96 .82 .05 .03],...
         'string',Animtype,...
         'Visible','off')
-    
+
     uicontrol('tag','Bandtype',...
         'Units','normalized',...
         'style','edit',...
         'position',[.91 .85 .05 .03],...
         'visible','off',...
-        'string',Bandmtype) 
-    
+        'string',Bandmtype)
+
     uicontrol('tag','Dmtype',...
         'Units','normalized',...
         'style','edit',...
         'position',[.91 .82 .05 .03],...
         'visible','off',...
-        'string',Dmmtype) 
-    
+        'string',Dmmtype)
 
-    
-titleh = 0.68; 
+
+
+titleh = 0.68;
 titlew = 0.76+0.06;
     % title text box above boxes specifying what things are
     uicontrol('tag','labValue',...
@@ -343,22 +343,22 @@ titlew = 0.76+0.06;
         'style','text',...
         'position',[titlew+.05 titleh .05 .04],...
         'background',col,...
-        'string','Error')    
+        'string','Error')
     uicontrol('tag','labDependency',...
         'Units','normalized',...
         'style','text',...
         'position',[titlew+.095 titleh .06 .04],...
         'background',col,...
-        'string','Dependency')        
+        'string','Dependency')
     uicontrol('tag','labfitchecks',...
         'Units','normalized',...
         'style','text',...
         'position',[titlew+.16 titleh .02 .04],...
         'background',col,...
         'string','Fit')
-    
-tcboxh = 0.67;    
-tcboxw = 0.82;    
+
+tcboxh = 0.67;
+tcboxw = 0.82;
     % text boxes with Tc d0 c and lambda0 parameters
     %Tc
     uicontrol('tag','labTc',...
@@ -382,7 +382,7 @@ tcboxw = 0.82;
         'Units','normalized',...
         'style','edit',...
         'position',[tcboxw+.1 tcboxh .05 .03],...
-        'string','0')    
+        'string','0')
     uicontrol('tag','checkTc',...
         'Units','normalized',...
         'style','checkbox',...
@@ -412,13 +412,13 @@ d0boxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[d0boxw+.1 d0boxh .05 .03],...
-        'string','0')        
+        'string','0')
     uicontrol('tag','checkd0',...
         'Units','normalized',...
         'style','checkbox',...
         'position',[d0boxw+.16 d0boxh .025 .03],...
         'value',1)
-    
+
 cboxh = tcboxh-.08;
 cboxw = tcboxw;
     %c
@@ -442,7 +442,7 @@ cboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[cboxw+.1 cboxh .05 .03],...
-        'string','0')        
+        'string','0')
     uicontrol('tag','checkc',...
         'Units','normalized',...
         'style','checkbox',...
@@ -472,7 +472,7 @@ lambdaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[lambdaboxw+.1 lambdaboxh .05 .03],...
-        'string','0')        
+        'string','0')
     uicontrol('tag','checklambda',...
         'Units','normalized',...
         'style','checkbox',...
@@ -481,7 +481,7 @@ lambdaboxw = tcboxw;
 
 
 
-    
+
 %
 alphaparm = uibuttongroup('tag','alphaparm',...
                 'Units','normalized',...
@@ -489,7 +489,7 @@ alphaparm = uibuttongroup('tag','alphaparm',...
                 'Position',[0.75 0.3 0.25 0.24]);
 sep = 0.17;
 boxhi = .14;
-titleh = 0.88; 
+titleh = 0.88;
 titlew = 0.2+0.06;
     % title text box above boxes specifying what things are
     uicontrol(alphaparm,'tag','labValue',...
@@ -501,20 +501,20 @@ titlew = 0.2+0.06;
         'Units','normalized',...
         'style','text',...
         'position',[titlew+.2 titleh .1 .1],...
-        'string','Error')    
+        'string','Error')
     uicontrol(alphaparm,'tag','labDependency',...
         'Units','normalized',...
         'style','text',...
         'position',[titlew+.35 titleh .22 .1],...
-        'string','Dependency')        
+        'string','Dependency')
     uicontrol(alphaparm,'tag','labfitchecks',...
         'Units','normalized',...
         'style','text',...
         'position',[titlew+.6 titleh .1 .1],...
         'string','Fit')
-    
-tcboxh = .75;    
-tcboxw = .27;    
+
+tcboxh = .75;
+tcboxw = .27;
     % text boxes with Tc d0 c and lambda0 parameters
     %Tc
     uicontrol(alphaparm,'tag','labTc2',...
@@ -537,7 +537,7 @@ tcboxw = .27;
         'Units','normalized',...
         'style','edit',...
         'position',[tcboxw+.42 tcboxh .21 boxhi],...
-        'string','0')    
+        'string','0')
     uicontrol(alphaparm,'tag','checkTc2',...
         'Units','normalized',...
         'style','checkbox',...
@@ -567,13 +567,13 @@ d0boxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[d0boxw+.42 d0boxh .21 boxhi],...
-        'string','0')    
+        'string','0')
     uicontrol(alphaparm,'tag','checkd02',...
         'Units','normalized',...
         'style','checkbox',...
         'position',[d0boxw+.65 d0boxh .1 boxhi],...
         'value',1)
-    
+
 cboxh = d0boxh-sep;
 cboxw = tcboxw;
     %c
@@ -597,14 +597,14 @@ cboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[cboxw+.42 cboxh .21 boxhi],...
-        'string','0')    
+        'string','0')
     uicontrol(alphaparm,'tag','checkc2',...
         'Units','normalized',...
         'style','checkbox',...
         'position',[cboxw+.65 cboxh .1 boxhi],...
         'value',1)
 
-    
+
 lambdaboxh = cboxh-sep;
 lambdaboxw = tcboxw;
     %Lambda0
@@ -628,14 +628,14 @@ lambdaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[lambdaboxw+.42 lambdaboxh .21 boxhi],...
-        'string','0')    
+        'string','0')
     uicontrol(alphaparm,'tag','checklambda2',...
         'Units','normalized',...
         'style','checkbox',...
         'position',[lambdaboxw+.65 lambdaboxh .1 boxhi],...
         'value',1)
-    
-    
+
+
 alphaboxh = lambdaboxh-sep;
 alphaboxw = tcboxw;
     %Alpha
@@ -659,14 +659,14 @@ alphaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[alphaboxw+.42 alphaboxh .21 boxhi],...
-        'string','0')    
+        'string','0')
     uicontrol(alphaparm,'tag','checkalpha',...
         'Units','normalized',...
         'style','checkbox',...
         'position',[alphaboxw+.65 alphaboxh .1 boxhi],...
         'value',1)
-    
-    
+
+
     % box for how many points you want
     uicontrol('tag','labcalcpoints',...
         'Units','normalized',...
@@ -678,9 +678,9 @@ alphaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[.78 .2 .05 .03],...
-        'string','50')    
-    
-    
+        'string','50')
+
+
     %function tolerance
     uicontrol('tag','labtolerance',...
         'Units','normalized',...
@@ -692,8 +692,8 @@ alphaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[.90 .25 .05 .03],...
-        'string','5e-24') 
-    
+        'string','5e-24')
+
     % box for how many iterations to do of fit
     uicontrol('tag','labits',...
         'Units','normalized',...
@@ -705,8 +705,8 @@ alphaboxw = tcboxw;
         'Units','normalized',...
         'style','edit',...
         'position',[.90 .2 .05 .03],...
-        'string','1')  
-    
+        'string','1')
+
     % buttons for fitting and calculating
     uicontrol('tag','calcbutton',...
         'Units','normalized',...
@@ -720,61 +720,61 @@ alphaboxw = tcboxw;
         'position',[.85 .1 0.1 .07],...
         'string','Fit',...
         'callback','BCStheoryCriticalCurrentFit32(''fit2'')')
-    
-    
-   
-    
+
+
+
+
 else
     f1 = 311;
     plotax=findobj(f1,'tag','plotax');
     filebox=findobj(f1,'tag','filebox');
     parkappa=findobj(f1,'tag','parkappa');
     parAniso=findobj(f1,'tag','parAniso');
-    
+
     tolerance=findobj(f1,'tag','partolerance');
-    
+
     parwidth=findobj(f1,'tag','parwidth');
     parthick=findobj(f1,'tag','parthick');
-    
+
     parTc=findobj(f1,'tag','parTc');
     parTcErr=findobj(f1,'tag','parTcErr');
     parTcDep=findobj(f1,'tag','parTcDep');
-    
+
     parTc2=findobj(f1,'tag','parTc2');
     parTc2Err=findobj(f1,'tag','parTc2Err');
     parTc2Dep=findobj(f1,'tag','parTc2Dep');
-    
+
     pard0=findobj(f1,'tag','pard0');
     pard0Err=findobj(f1,'tag','pard0Err');
     pard0Dep=findobj(f1,'tag','pard0Dep');
-    
+
     pard02=findobj(f1,'tag','pard02');
     pard02Err=findobj(f1,'tag','pard02Err');
     pard02Dep=findobj(f1,'tag','pard02Dep');
-    
+
     parc=findobj(f1,'tag','parc');
     parcErr=findobj(f1,'tag','parcErr');
     parcDep=findobj(f1,'tag','parcDep');
-    
+
     parc2=findobj(f1,'tag','parc2');
     parc2Err=findobj(f1,'tag','parc2Err');
     parc2Dep=findobj(f1,'tag','parc2Dep');
-    
+
     parlambda=findobj(f1,'tag','parlambda');
     parlambdaErr=findobj(f1,'tag','parlambdaErr');
     parlambdaDep=findobj(f1,'tag','parlambdaDep');
-    
+
     parlambda2=findobj(f1,'tag','parlambda2');
     parlambda2Err=findobj(f1,'tag','parlambda2Err');
     parlambda2Dep=findobj(f1,'tag','parlambda2Dep');
 
-    
+
     paralpha=findobj(f1,'tag','paralpha');
     paralphaErr=findobj(f1,'tag','paralphaErr');
     paralphaDep=findobj(f1,'tag','paralphaDep');
-    
+
     alphaparm = findobj(f1,'tag','alphaparm');
-    
+
     parcalcpoints=findobj(f1,'tag','parcalcpoints');
     parnumits=findobj(f1,'tag','parnumits');
     symtype=findobj(f1,'tag','symtype');
@@ -782,9 +782,9 @@ else
     Dmtype=findobj(f1,'tag','Dmtype');
     Bandtype=findobj(f1,'tag','Bandtype');
     Anitype=findobj(f1,'tag','Anitype');
-    
+
     switch callback
-        
+
     case 'browse'
         currentfilepaththing = get(filebox,'string');
         [fname,fpath] = uigetfile('*.csv','my title',...
@@ -793,7 +793,7 @@ else
             set(filebox,'string',[fpath fname])
         end
         BCStheoryCriticalCurrentFit32('load')
-        
+
     case 'load'
         fname = get(filebox,'string');
         if exist(fname)==2
@@ -803,9 +803,9 @@ else
             %dataline=line(tvec,jvec,'linestyle','none','marker','.','color','g','tag','dataline');
             set(parTc,'string',num2str(max(tvec)))
         end
-        
+
     case 'save'
-        
+
         model4 = get(Dmtype,'string');
         model2 = get(Bandtype,'string');
         model3 = get(symtype,'string');
@@ -818,7 +818,7 @@ else
         currentfilepaththing = get(filebox,'string');
         [fname fpath] = uiputfile('.dat','my title',...
                                     currentfilepaththing);
-        
+
         fileID = fopen([fpath fname],'w');
         fprintf(fileID,[fname '\n']);
         if strcmp(model2,'Single')
@@ -868,14 +868,14 @@ else
         else
             set(symtype,'string','please choose a model')
             fprintf(fileID,['Error no model choosen' '\n']);
-        end   
-        
+        end
+
 
         fprintf(fileID,'%6s %10s\n','T','Jc');
         fprintf(fileID,'%6f %10f\n',bvec);
-        
+
         fclose(fileID);
-    
+
     case 'lamexpsave'
         kappa = str2num(get(parkappa,'string'));
         Aniso = str2num(get(parAniso,'string'));
@@ -890,14 +890,14 @@ else
         fluxq = 2.067833758*10^(-15); %flux quantum
         mew0 = 4*pi*10^(-7); % Vacuum permeability
         kap = log(kappa)+0.5; %kappa reduced
-        
+
         %Determine factor
         if ~isempty(strfind( model1 , 'TypeI ' ))
             factor = (fluxq*kappa/(sqrt(8)*pi*mew0));
         elseif ~isempty(strfind( model1 , 'TypeII' ))
             factor = (fluxq*(kap)/(4*pi*mew0));
         end
-        
+
         %determine geomtrey
         if ~isempty(strfind( model4 , '2DSample' ))
             rhs = @(Jc,lambda,awidth,bthick) Jc -  factor.*(1./lambda.^3);
@@ -915,15 +915,15 @@ else
         else
             error('Breaking out of function1');
         end
-        
-        
+
+
         a2 = awidth/2;
         b2 = bthick/2;
-        
+
         mvec = csvread([fname]);
         tvec = mvec(:,1);
         jvec = mvec(:,2);
-        
+
         lamvec = zeros(length(tvec),1);
         for ii = 1:length(tvec)
             F = @(x) rhs(jvec(ii),x,a2,b2);
@@ -938,9 +938,9 @@ else
         fprintf(fileID,'%12.6f %12.12f %12.12f\n',bvec);
 
         fclose(fileID);
-        
-        
-        
+
+
+
     case 'lamsave'
         testTc = str2num(get(parTc,'string'));
         testTc2 = str2num(get(parTc2,'string'));
@@ -960,26 +960,26 @@ else
         model2 = get(Bandtype,'string');
         model3 = get(symtype,'string');
         model1 = get(SCtype,'string');
-        model = [model1 model2 model3 model4];       
-        
+        model = [model1 model2 model3 model4];
+
         dataline=findobj(f1,'tag','dataline');
         calcline=findobj(f1,'tag','calcline');
         tdat = get(calcline,'xdata')';
         jdat = get(calcline,'ydata')';
-        
+
             % constants
         kb = 8.617*10^(-5);  %bolztmannzs
         fluxq = 2.067833758*10^(-15); %flux quantum
         mew0 = 4*pi*10^(-7); % Vacuum permeability
         kap = log(kappa)+0.5; %kappa reduced
-        
+
         %Determine factor
         if ~isempty(strfind( model1 , 'TypeI ' ))
             factor = (fluxq*kappa/(sqrt(8)*pi*mew0));
         elseif ~isempty(strfind( model1 , 'TypeII' ))
             factor = (fluxq*(kap)/(4*pi*mew0));
         end
-        
+
         %determine geomtrey
         if ~isempty(strfind( model4 , '2DSample' ))
             rhs = @(Jc,lambda,awidth,bthick) Jc -  factor.*(1./lambda.^3);
@@ -997,25 +997,25 @@ else
         else
             error('Breaking out of function1');
         end
-        
+
         a2 = awidth/2;
         b2 = bthick/2;
-        
-        
+
+
         lamvec = zeros(length(tdat),1);
         for ii = 1:length(tdat)
             F = @(x) rhs(jdat(ii),x,a2,b2);
             lamvec(ii) = fsolve(F,10^-7);
         end
-        
+
         bvec = [tdat';jdat';lamvec'];
         currentfilepaththing = get(filebox,'string');
         [fname fpath] = uiputfile('.dat','my title',...
                                     currentfilepaththing);
-        
+
         fileID = fopen([fpath fname],'w');
         fprintf(fileID,[fname '\n']);
-        
+
         if strcmp(model2,'Single')
             fprintf(fileID,[model '\n']);
             fprintf(fileID,['2a = ' get(parwidth,'string') ', 2b = ' get(parthick,'string') '\n']);
@@ -1063,14 +1063,14 @@ else
         else
             set(symtype,'string','please choose a model')
             fprintf(fileID,['Error no model choosen' '\n']);
-        end   
-        
-        
-        
+        end
+
+
+
         fprintf(fileID,'%6s %10s %10s\n','T','Jc','Lambda(T)');
         fprintf(fileID,'%6f %10.15f %10.15f\n',bvec);
         fclose(fileID);
-        
+
     case 'NoDimensions'
         Dmmtype = '2DSample';
         set(Dmtype,'string',Dmmtype)
@@ -1087,8 +1087,8 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
-    
+
+
     case 'Dimensions'
         Dmmtype = '3DSample';
         set(Dmtype,'string',Dmmtype)
@@ -1106,7 +1106,7 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'wire'
         Dmmtype = 'WireBessel';
         set(Dmtype,'string',Dmmtype)
@@ -1124,7 +1124,7 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'wiretanh'
         Dmmtype = 'WireTanh';
         set(Dmtype,'string',Dmmtype)
@@ -1142,7 +1142,7 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'typeIk0'
         SCmtype = 'TypeI ';
         set(SCtype,'string',SCmtype)
@@ -1151,7 +1151,7 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     %case 'typeI'
     %    SCmtype = 'TypeI';
     %    set(SCtype,'string',SCmtype)
@@ -1173,7 +1173,7 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'normals2'
         Symmtype = 'Swave';
         set(symtype,'string',Symmtype)
@@ -1182,15 +1182,15 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'NoAni'
         Animtype = '';
         set(Anitype,'string',Animtype)
-        
+
     case 'Aniso'
         Animtype = 'Ani';
         set(Anitype,'string',Animtype)
-        
+
     case 'Singlemodel'
         set(alphaparm,'Visible','off')
         Bandmtype = 'Single';
@@ -1205,41 +1205,41 @@ else
 
     case 'Alphamodel'
         set(alphaparm,'Visible','on')
-        
+
         set(findobj(f1,'tag','alphasbut'),'value',0)
         set(findobj(f1,'tag','alphadbut'),'value',1)
         set(findobj(f1,'tag','alphaslbut'),'value',0)
         set(findobj(f1,'tag','alphadlbut'),'value',0)
-        
+
         set(parTc2,'Visible','off')
         set(parTc2Err,'Visible','off')
         set(parTc2Dep,'Visible','off')
         set(findobj('tag','checkTc2'),'Visible','off')
-        
+
         set(parlambda2,'Visible','off')
         set(parlambda2Err,'Visible','off')
         set(parlambda2Dep,'Visible','off')
         set(findobj('tag','checklambda2'),'Visible','off')
-        
+
         set(paralpha,'Visible','on')
         set(paralphaErr,'Visible','on')
         set(paralphaDep,'Visible','on')
         set(findobj('tag','checkalpha'),'Visible','on')
-        
+
         Bandmtype = 'Alpha';
         set(Bandtype,'string',Bandmtype)
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'Jcindependent'
         set(alphaparm,'Visible','on')
-        
+
         set(findobj(f1,'tag','alphasbut'),'value',0)
         set(findobj(f1,'tag','alphadbut'),'value',0)
         set(findobj(f1,'tag','alphaslbut'),'value',1)
         set(findobj(f1,'tag','alphadlbut'),'value',0)
-        
+
         set(parTc2,'Visible','on')
         set(parTc2Err,'Visible','on')
         set(parTc2Dep,'Visible','on')
@@ -1249,18 +1249,18 @@ else
         set(parlambda2Err,'Visible','on')
         set(parlambda2Dep,'Visible','on')
         set(findobj('tag','checklambda2'),'Visible','on')
-        
+
         set(paralpha,'Visible','off')
         set(paralphaErr,'Visible','off')
         set(paralphaDep,'Visible','off')
         set(findobj('tag','checkalpha'),'Visible','off')
-        
+
         Bandmtype = 'Independent';
         set(Bandtype,'string',Bandmtype)
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'Umera'
         set(alphaparm,'Visible','on')
         set(findobj(f1,'tag','alphasbut'),'value',0)
@@ -1276,7 +1276,7 @@ else
         set(parlambda2Err,'Visible','off')
         set(parlambda2Dep,'Visible','off')
         set(findobj('tag','checklambda2'),'Visible','off')
-        
+
         set(paralpha,'Visible','off')
         set(paralphaErr,'Visible','off')
         set(paralphaDep,'Visible','off')
@@ -1286,9 +1286,9 @@ else
         lege = legend(uifitEqnLegend(get(SCtype,'string'),get(symtype,'string'),get(Dmtype,'string'),get(Bandtype,'string')),legeloc);
         set(lege,'Interpreter','latex')
         set(lege,'FontSize',legfontsize)
-        
+
     case 'calc2'
-        
+
         testTc = str2num(get(parTc,'string'));
         testTc2 = str2num(get(parTc2,'string'));
         testd0 = str2num(get(pard0,'string'));
@@ -1309,7 +1309,7 @@ else
         model3 = get(symtype,'string');
         model1 = get(SCtype,'string');
         model = [model1 model2 model3 model4 model5];
-        calcline=findobj(f1,'tag','calcline');        
+        calcline=findobj(f1,'tag','calcline');
         dataline=findobj(f1,'tag','dataline');
         tdat=get(dataline,'xdata');
         lowesttpoint = min(tdat);
@@ -1321,20 +1321,20 @@ else
         tcalc=linspace(lowestT,testTc,calcpoints);
         if strcmp(model2,'Single')
             jcalc = uiJcCalcFunctions(kappa,Aniso,[testTc testd0 testc testlambda],awidth,bthick,tcalc,model);
-        elseif strcmp(model2,'Alpha')         
+        elseif strcmp(model2,'Alpha')
             jcalc = uiJcCalcFunctions(kappa,Aniso,[testTc testd0 testc testlambda testd02 testc2 testalpha],awidth,bthick,tcalc,model);
         elseif strcmp(model2,'Independent')
             jcalc = uiJcCalcFunctions(kappa,Aniso,[testTc testd0 testc testlambda testTc2 testd02 testc2 testlambda2],awidth,bthick,tcalc,model);
-        elseif strcmp(model2,'Umera')           
+        elseif strcmp(model2,'Umera')
             jcalc = uiJcCalcFunctions(kappa,Aniso,[testTc testd0 testc testlambda testTc2 testd02 testc2],awidth,bthick,tcalc,model);
         else
             set(symtype,'string','Please select model')
         end
-            
-        
+
+
         set(calcline,'xdata',tcalc,'ydata',jcalc)
-        
-        
+
+
     case 'fit2'
         testTc = str2num(get(parTc,'string'));
         testTc2 = str2num(get(parTc2,'string'));
@@ -1372,13 +1372,13 @@ else
         jdat=get(dataline,'ydata');
         if strcmp(model2,'Single')
             sw=[checkTc checkd0 checkc checklambda];
-            sw=~sw;       
+            sw=~sw;
             [fitt fitj p resnorm err dep] = uiJcFitFunctions(kappa,Aniso,[testTc testd0 testc testlambda],awidth,bthick,tdat,jdat,sw,iternum,model,tolerance);
         elseif strcmp(model2,'Alpha')
             sw=[checkTc checkd0 checkc checklambda checkd02 checkc2 checkalpha];
-            sw=~sw;            
+            sw=~sw;
             [fitt fitj p resnorm err dep] = uiJcFitFunctions(kappa,Aniso,[testTc testd0 testc testlambda testd02 testc2 testalpha],awidth,bthick,tdat,jdat,sw,iternum,model,tolerance);
-            
+
             set(parTc2,'string',num2str(p(1)))
             set(parTc2Err,'string',num2str(err(1)))
             set(parTc2Dep,'string',num2str(dep(1)))
@@ -1390,20 +1390,20 @@ else
             set(parc2,'string',num2str(p(6)))
             set(parc2Err,'string',num2str(err(6)))
             set(parc2Dep,'string',num2str(dep(6)))
-            
+
             set(parlambda2,'string',num2str(p(4)))
             set(parlambda2Err,'string',num2str(err(4)))
             set(parlambda2Dep,'string',num2str(dep(4)))
-            
+
             set(paralpha,'string',num2str(p(7)))
             set(paralphaErr,'string',num2str(err(7)))
             set(paralphaDep,'string',num2str(dep(7)))
-            
+
         elseif strcmp(model2,'Independent')
             sw=[checkTc checkd0 checkc checklambda checkTc2 checkd02 checkc2 checklambda2];
             sw=~sw;
             [fitt fitj p resnorm err dep] = uiJcFitFunctions(kappa,Aniso,[testTc testd0 testc testlambda testTc2 testd02 testc2 testlambda2],awidth,bthick,tdat,jdat,sw,iternum,model,tolerance);
-            
+
             set(parTc2,'string',num2str(p(5)))
             set(parTc2Err,'string',num2str(err(5)))
             set(parTc2Dep,'string',num2str(dep(5)))
@@ -1415,16 +1415,16 @@ else
             set(parc2,'string',num2str(p(7)))
             set(parc2Err,'string',num2str(err(7)))
             set(parc2Dep,'string',num2str(dep(7)))
-            
+
             set(parlambda2,'string',num2str(p(8)))
             set(parlambda2Err,'string',num2str(err(8)))
             set(parlambda2Dep,'string',num2str(dep(8)))
-                       
+
         elseif strcmp(model2,'Umera')
             sw=[checkTc checkd0 checkc checklambda checkTc2 checkd02 checkc2];
-            sw=~sw;            
+            sw=~sw;
             [fitt fitj p resnorm err dep] = uiJcFitFunctions(kappa,Aniso,[testTc testd0 testc testlambda testTc2 testd02 testc2],awidth,bthick,tdat,jdat,sw,iternum,model,tolerance);
-            
+
             set(parTc2,'string',num2str(p(5)))
             set(parTc2Err,'string',num2str(err(5)))
             set(parTc2Dep,'string',num2str(dep(5)))
@@ -1436,32 +1436,32 @@ else
             set(parc2,'string',num2str(p(7)))
             set(parc2Err,'string',num2str(err(7)))
             set(parc2Dep,'string',num2str(dep(7)))
-            
+
             set(parlambda2,'string',num2str(sqrt(p(1)/p(5))*p(4)))
             set(parlambda2Err,'string',num2str(0))
             set(parlambda2Dep,'string',num2str(0))
-            
+
         else
             set(symtype,'string','Please select model')
         end
         set(fitline,'xdata',fitt,'ydata',fitj)
-        
+
         set(parTc,'string',num2str(p(1)))
         set(parTcErr,'string',num2str(err(1)))
         set(parTcDep,'string',num2str(dep(1)))
-        
+
         set(pard0,'string',num2str(p(2)))
         set(pard0Err,'string',num2str(err(2)))
         set(pard0Dep,'string',num2str(dep(2)))
-        
+
         set(parc,'string',num2str(p(3)))
         set(parcErr,'string',num2str(err(3)))
         set(parcDep,'string',num2str(dep(3)))
-        
+
         set(parlambda,'string',num2str(p(4)))
         set(parlambdaErr,'string',num2str(err(4)))
         set(parlambdaDep,'string',num2str(dep(4)))
-        
+
     end
 
 end
@@ -1484,7 +1484,7 @@ return
 function EquationString = uifitEqnLegend(SCmtype,Symmtype,Dmmtype,Bandmtype)
 if strcmp(SCmtype,'TypeII')
     str1 = '\frac{\phi_0 (\ln \kappa + 0.5)}{4 \pi \mu_0}';
-    
+
 else
     str1 = '\frac{\phi_0 \kappa}{2\sqrt{2} \pi \mu_0}';
 end
@@ -1505,7 +1505,7 @@ if strcmp(Symmtype,'Swave')
 else
     str3 = '\rho = 1 - \frac{1}{2\pi k_B T} \int^{2\pi}_0 \cos^2 (\varphi) \int^{\infty}_0 \cosh^{-2} \left( \frac{\sqrt{\epsilon^2 + \Delta^2(T,\varphi)}}{2k_B T}  \right) d\epsilon d\varphi';
 end
-    
+
 if strcmp(Bandmtype,'Single')
     str4 = '';
 elseif strcmp(Bandmtype,'Alpha')
@@ -1514,10 +1514,10 @@ elseif strcmp(Bandmtype,'Independent')
     str4 = 'J_{ctot} = J_{c1} + J_{c2}';
 elseif strcmp(Bandmtype,'Umera')
     str4 = 'J_{ctot} = J_{c1} + J_{c2}, \lambda_{02} = \lambda_{01}\sqrt{\frac{T_{c1}}{T_{c2}}} ';
-else 
+else
     str4 = '';
 end
-    
+
 EquationString = ['$$ J_c(T,sf) = ' str1 str2 ', ' str3 ', ' str4 ' $$'];
 
 return
@@ -1572,7 +1572,7 @@ elseif ~isempty(strfind( fitmodel , '3DSample' ))
         singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*( (1./((awidth*10^(-6)))).*tanh((awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4))*10^(-9))) + (1./(bthick.*10^(-6))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(bthick.*10^(-6))./((p(4))*10^(-9)))) , tdat);
     else
         singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*( (1./((awidth*10^(-6)).*Aniso.^(3/2))).*tanh((awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4))*10^(-9))) + (log(Aniso)./(kap.*(awidth*10^(-6)).*Aniso.^(3/2))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(awidth*10^(-6))./((p(4))*10^(-9))) + (Aniso./(bthick.*10^(-6))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(bthick.*10^(-6))./(Aniso.*(p(4))*10^(-9)))) , tdat);
-        
+
     end
 elseif ~isempty(strfind( fitmodel , 'WireBessel' ))
     singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*(2./((awidth*10^(-6)))).*(besseli(1,(awidth*10^(-6))*(SuperFluid(T,p(1),p(2),p(3))^(1/2))/((p(4))*10^(-9)))./besseli(0,(awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4)).*10^(-9)))), tdat);
@@ -1587,7 +1587,7 @@ elseif ~isempty(strfind( fitmodel , 'Alpha' ))
     model = @(p,T) p(7)*singlefun([p(1) p(2) p(3) p(4)],T) + (1-p(7))*singlefun([p(1) p(5) p(6) p(4)],T);
 elseif ~isempty(strfind( fitmodel , 'Independent' ))
     model = @(p,T) singlefun([p(1) p(2) p(3) p(4)],T) + singlefun([p(5) p(6) p(7) p(8)],T);
-elseif ~isempty(strfind( fitmodel , 'Umera' ))    
+elseif ~isempty(strfind( fitmodel , 'Umera' ))
     model = @(p,T) singlefun([p(1) p(2) p(3) p(4)],T) + singlefun([p(5) p(6) p(7) p(4)*sqrt(p(1)/p(5))],T);
 end
 
@@ -1647,7 +1647,7 @@ elseif ~isempty(strfind( fitmodel , '3DSample' ))
         singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*( (1./((awidth*10^(-6)))).*tanh((awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4))*10^(-9))) + (1./(bthick.*10^(-6))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(bthick.*10^(-6))./((p(4))*10^(-9)))) , tdat);
     else
         singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*( (1./((awidth*10^(-6)).*Aniso.^(3/2))).*tanh((awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4))*10^(-9))) + (log(Aniso)./(kap.*(awidth*10^(-6)).*Aniso.^(3/2))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(awidth*10^(-6))./((p(4))*10^(-9))) + (Aniso./(bthick.*10^(-6))).*tanh((SuperFluid(T,p(1),p(2),p(3)).^(1/2)).*(bthick.*10^(-6))./(Aniso.*(p(4))*10^(-9)))) , tdat);
-        
+
     end
 elseif ~isempty(strfind( fitmodel , 'WireBessel' ))
     singlefun = @(p,T) arrayfun(@(T) factor.*(1/((p(4)^2)*10^(-18))).*SuperFluid(T,p(1),p(2),p(3)).*(2./((awidth*10^(-6)))).*(besseli(1,(awidth*10^(-6))*(SuperFluid(T,p(1),p(2),p(3))^(1/2))/((p(4))*10^(-9)))./besseli(0,(awidth*10^(-6)).*(SuperFluid(T,p(1),p(2),p(3)).^(1/2))./((p(4)).*10^(-9)))), tdat);
@@ -1662,7 +1662,7 @@ elseif ~isempty(strfind( fitmodel , 'Alpha' ))
     model = @(p,T) p(7)*singlefun([p(1) p(2) p(3) p(4)],T) + (1-p(7))*singlefun([p(1) p(5) p(6) p(4)],T);
 elseif ~isempty(strfind( fitmodel , 'Independent' ))
     model = @(p,T) singlefun([p(1) p(2) p(3) p(4)],T) + singlefun([p(5) p(6) p(7) p(8)],T);
-elseif ~isempty(strfind( fitmodel , 'Umera' ))    
+elseif ~isempty(strfind( fitmodel , 'Umera' ))
     model = @(p,T) singlefun([p(1) p(2) p(3) p(4)],T) + singlefun([p(5) p(6) p(7) p(4)*sqrt(p(1)/p(5))],T);
 end
 options = optimset('MaxFunEvals', 50000,'MaxIter', numofits,'TolFun',tolerance,'TolX',1e-10,'Display','iter');
@@ -1675,7 +1675,7 @@ if ~isempty(strfind( fitmodel , 'Single' ))
 elseif ~isempty(strfind( fitmodel , 'Alpha' ))
     lb = [max(tdat)-0.4*max(tdat) 0.00001 0.2 0.1 0.0001 0.2 0.0001]; %lower bound
     ub = [max(tdat)+0.7*max(tdat) 1 5 1000000 1 5 1]; %upper bound
-elseif ~isempty(strfind( fitmodel , 'Independent' )) 
+elseif ~isempty(strfind( fitmodel , 'Independent' ))
     lb = [max(tdat)-0.4*max(tdat) 0.00001 0.2 0.1 0.0001 0.0001 0.2 0.1]; %lower bound
     ub = [max(tdat)+0.7*max(tdat) 1 5 100000 pint(1) 1 5 100000]; %upper bound
 elseif ~isempty(strfind( fitmodel , 'Umera' ))
@@ -1705,7 +1705,7 @@ for jj = 1:numel(sw)
         dep(jj) = deptmp(ii);
         ii = ii+1;
     end
-    
+
 end
 
 
